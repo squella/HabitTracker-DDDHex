@@ -8,14 +8,19 @@ export class UserInMemoryRepository implements UserRepository{
         this.users.push(user)
     }
 
+    withUsers(users: User[]){
+        this.users = users
+    }
+
     isUserSaved(user: User): boolean {
         return this.users.some((u: User) => u.id === user.id)
     }
 
     findById(id: string): User {
-        throw new Error("Method not implemented.");
+        return this.users.find((user: User): boolean => user.id === id)
     }
+    
     findByUsername(username: string): User {
-        throw new Error("Method not implemented.");
+        return this.users.find((user: User): boolean => user.username === username)
     }
 }
