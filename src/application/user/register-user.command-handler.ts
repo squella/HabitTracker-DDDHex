@@ -15,7 +15,7 @@ export class RegisterUserCommandHandler {
         throw new Error(`the user with id equal to ${command.id} already exists`)
     }
     if (!command.username || !command.fullname) {
-        throw new Error(`The user with usermane ${command.username} and fullname ${command.username} is not valid`);
+        throw new Error(`The user with usermane equal to ${command.username} and fullname equal to ${command.username} is not valid`);
     }
     const user = new User(command.id, command.username, command.fullname)
     this.repository.save(user)

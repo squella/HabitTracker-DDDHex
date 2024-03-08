@@ -35,6 +35,6 @@ describe('RegisterUserCommandHandler',()=>{
         const command = new RegisterUserCommand(invalidUser.id, invalidUser.username, invalidUser.fullname);
         expect(() => {
             handler.handler(command);
-        }).toThrow(`The user with usermane ${command.username} and fullname ${command.username} is not valid`);
+        }).toThrow(`The user with usermane equal to ${command.username} and fullname equal to ${command.username} is not valid`);
     })
 })
