@@ -1,7 +1,8 @@
+import { Id } from '../id';
 
 export class Habit{
-    private constructor(
-        readonly id: string,
+    constructor(
+        readonly id: Id,
         readonly name: string,
         readonly description: string,
         readonly frequency: string,

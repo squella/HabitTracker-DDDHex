@@ -1,7 +1,6 @@
-import {v4 as uuidv4} from 'uuid';
 import { UserInMemoryRepository } from './user.in-memory.repository';
-import { RegisterUserCommand } from "../../src/application/user/register-user.command";
-import { RegisterUserCommandHandler } from '../../src/application/user/register-user.command-handler';
+import { RegisterUserCommand } from "../../../src/application/user/register-user.command";
+import { RegisterUserCommandHandler } from '../../../src/application/user/register-user.command-handler';
 import { UserMother } from './user.mother';
 
 

@@ -1,8 +1,9 @@
+import { Id } from "../id";
 import { User } from "./user";
 
 export interface UserRepository{
     save(user: User):void
-    findById(id:string): User | undefined
+    findById(id:Id): User | undefined
     findByUsername(username: string): User | undefined
 }
 

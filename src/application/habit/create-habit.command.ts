@@ -1,11 +1,13 @@
+import { Id } from "src/domain/id"
+
 export class CreateHabitCommand {
-    id: string
-    name: string
-    description: string
-    frequency: string
-    EstimatedTimeInSeconds: string
-    RestTimeAfterPracticingHabit: string
-    userId: string
-    creationdate: string
-    dateForLastUpdate: string
+    readonly id: Id
+    readonly name: string
+    readonly description: string
+    readonly frequency: string
+    readonly estimatedTimeInSeconds: string
+    readonly restTimeAfterPracticingHabit: string
+    readonly userId: string
+    readonly creationdate: string
+    readonly dateForLastUpdate: string
 }
