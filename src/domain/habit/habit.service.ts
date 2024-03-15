@@ -3,6 +3,7 @@ import { Id } from "../id";
 import { UserRepository } from "../user/user.repository";
 import { HabitFactory } from "./habit.factory";
 import { HabitRepository } from "./habit.repository";
+import { GetHabitsQuery } from "src/application/habit/get-habits.query";
 
 export class HabitService {
     constructor(
@@ -23,5 +24,15 @@ export class HabitService {
         const habit = HabitFactory.create(habitData)
         this.habitRepository.save(habit)
 
+    }
+
+    getHabitsByUser(query: GetHabitsQuery) {
+        const user = this.userRepository.findById(query.userId);
+        if (!user) {
+            throw new Error("User not found");
+        }
+
+        const habits = this.habitRepository.findHabitsByUserId(query.userId);
+        return habits;
     }
 }

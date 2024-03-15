@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 export class Id {
     private readonly value: string;
 
-    private constructor(value: string) {
+    constructor(value: string) {
         this.value = value;
     }
 
