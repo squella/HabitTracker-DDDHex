@@ -1,7 +1,8 @@
+import { Id } from "src/domain/id";
 
 export class RegisterUserCommand {
   constructor(
-    readonly id: string,
+    readonly id: Id,
     readonly username: string,
     readonly fullname: string,
 

@@ -1,12 +1,12 @@
-import { User } from "../../src/domain/user/user"
-import {v4 as uuidv4} from 'uuid';
+import { Id } from "../../../src/domain/id";
+import { User } from "../../../src/domain/user/user"
 
 export class UserMother {
-    private id: string = uuidv4()
+    private id: Id = Id.create()
     private username: string = 'username'
     private fullname: string = 'fullname'
 
-    withId(id: string){
+    withId(id: Id){
         this.id = id
         return this
     }
