@@ -4,6 +4,7 @@ import { HabitMemoryRepository } from "./habit.in-memory.repository";
 import { HabitMother } from "./habit.mother";
 import { HabitFactory } from "../../../src/domain/habit/habit.factory";
 import { Id } from "../../../src/domain/id";
+import { Frequency } from "../../../src/domain/frequency";
 
 
 describe('CreateHabitCommandHandler', () => {
@@ -72,7 +73,7 @@ describe('HabitFactory', () => {
             id: Id.create(),
             name: "Test Habit",
             description: "Test Description",
-            frequency: "Daily",
+            frequency: new Frequency(1, 'day'),
             estimatedTimeInSeconds: "600",
             restTimeAfterPracticingHabit: "300",
             userId: Id.create(),

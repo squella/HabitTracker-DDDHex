@@ -1,3 +1,4 @@
+import { Frequency } from "../../../src/domain/frequency"
 import { Habit } from "../../../src/domain/habit/habit"
 import { Id } from "../../../src/domain/id"
 
@@ -6,7 +7,7 @@ export class HabitMother{
     private id: Id = Id.create()
     private name: string = 'name'
     private description: string = 'description'
-    private frequency: string = 'frequency'
+    private frequency: Frequency = new Frequency(1, 'day')
     private estimatedTimeInSeconds: string = 'estimatedTimeInSeconds'
     private restTimeAfterPracticingHabit: string = 'restTimeAfterPracticingHabit'
     private userId: Id = Id.create()
@@ -28,7 +29,7 @@ export class HabitMother{
         return this
     }
 
-    withFrequency(frequency: string){
+    withFrequency(frequency: Frequency){
         this.frequency = frequency
         return this
     }

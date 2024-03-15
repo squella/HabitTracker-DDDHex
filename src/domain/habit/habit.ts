@@ -1,3 +1,4 @@
+import { Frequency } from '../frequency';
 import { Id } from '../id';
 
 export class Habit{
@@ -5,7 +6,7 @@ export class Habit{
         readonly id: Id,
         readonly name: string,
         readonly description: string,
-        readonly frequency: string,
+        readonly frequency: Frequency,
         readonly estimatedTimeInSeconds: string,
         readonly restTimeAfterPracticingHabit: string,
         readonly userId: Id,
