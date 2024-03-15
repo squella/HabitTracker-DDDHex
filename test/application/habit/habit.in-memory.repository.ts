@@ -21,7 +21,9 @@ export class HabitMemoryRepository implements HabitRepository{
     findDuplicateForUser(userId: Id, name: string): Habit | undefined {
         return this.habits.find(habit => habit.userId === userId && habit.name === name);
     }
+    
     findHabitsByUserId(userId: Id): Habit[] {
-        return this.habits.filter(habit => habit.userId === userId);
+        return this.habits.filter(habit => habit.userId.getValue() === userId.getValue());
     }
+    
 }

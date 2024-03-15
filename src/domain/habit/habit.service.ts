@@ -1,6 +1,6 @@
+import { CreateHabitCommand } from "src/application/habit/create-habit.command";
 import { Id } from "../id";
 import { UserRepository } from "../user/user.repository";
-import { HabitData } from "./habit-data.dto";
 import { HabitFactory } from "./habit.factory";
 import { HabitRepository } from "./habit.repository";
 
@@ -10,7 +10,7 @@ export class HabitService {
         private habitRepository: HabitRepository
     ){}
 
-    addHabitToUser(userId: Id, habitData: HabitData): void {
+    addHabitToUser(userId: Id, habitData: CreateHabitCommand): void {
         const user = this.userRepository.findById(userId)
         if (!user) {
             throw new Error("User not found");

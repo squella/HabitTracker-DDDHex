@@ -3,6 +3,8 @@ import { Habit } from "../../domain/habit/habit";
 import { HabitRepository } from "../../domain/habit/habit.repository";
 import { CreateHabitCommand } from "./create-habit.command";
 import { HabitValidationService } from "./validation-habit.service";
+import { HabitFactory } from "../../domain/habit/habit.factory";
+
 
 
 @Injectable()
@@ -16,17 +18,8 @@ export class CreateHabitCommandHandler{
     handle(command: CreateHabitCommand){
         this.validationService.validateCreation(command);
 
-        const habit = new Habit(
-            command.id,
-            command.name,
-            command.description,
-            command.frequency,
-            command.estimatedTimeInSeconds,
-            command.restTimeAfterPracticingHabit,
-            command.userId,
-            command.creationdate,
-            command.dateForLastUpdate
-            )
-        this.repository.save(habit)
+        const habit = HabitFactory.create(command);
+        this.repository.save(habit);
+
     }
 }

@@ -1,12 +1,12 @@
+import { CreateHabitCommand } from "src/application/habit/create-habit.command";
 import { Id } from "../id";
 import { Habit } from "./habit";
-import { HabitData } from "./habit-data.dto";
 
 export class HabitFactory {
-    public static create(habitData: HabitData): Habit {
+    public static create(habitData: CreateHabitCommand): Habit {
         const id = Id.create();
         const currentDate = new Date().toISOString();
-        const userId = Id.fromExisting(habitData.userId)
+        const userId = habitData.userId
 
         return new Habit(
             id,

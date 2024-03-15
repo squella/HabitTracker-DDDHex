@@ -3,6 +3,7 @@ import { CreateHabitCommand } from "../../../src/application/habit/create-habit.
 import { HabitMemoryRepository } from "./habit.in-memory.repository";
 import { HabitMother } from "./habit.mother";
 import { HabitFactory } from "../../../src/domain/habit/habit.factory";
+import { Id } from "../../../src/domain/id";
 
 
 describe('CreateHabitCommandHandler', () => {
@@ -41,7 +42,9 @@ describe('CreateHabitCommandHandler', () => {
         handler.handle(command);
 
         const savedHabits = repository.findHabitsByUserId(habitData.userId);
-        const isHabitSaved = savedHabits.some(h => h.id === habitData.id && h.name === habitData.name);
+        const isHabitSaved = savedHabits.some(habit =>
+            habit.name === habitData.name && habit.userId.getValue() === habitData.userId.getValue());
+
         expect(isHabitSaved).toBeTruthy();
     });
 
@@ -66,17 +69,20 @@ describe('CreateHabitCommandHandler', () => {
 describe('HabitFactory', () => {
     it('should correctly create a Habit instance from HabitData', () => {
         const habitData = {
-            userId: "existing-user-id",
+            id: Id.create(),
             name: "Test Habit",
             description: "Test Description",
             frequency: "Daily",
             estimatedTimeInSeconds: "600",
-            restTimeAfterPracticingHabit: "300"
+            restTimeAfterPracticingHabit: "300",
+            userId: Id.create(),
+            creationdate: "creationdate",
+            dateForLastUpdate: "dateForLastUpdate"
         };
 
         const habit = HabitFactory.create(habitData);
 
-        expect(habit.userId.getValue()).toBe(habitData.userId);
+        expect(habit.userId.getValue()).toBe(habitData.userId.getValue());
         expect(habit.name).toBe(habitData.name);
         expect(habit.description).toBe(habitData.description);
         expect(habit.frequency).toBe(habitData.frequency);
