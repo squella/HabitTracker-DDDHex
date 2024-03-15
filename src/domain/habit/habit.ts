@@ -6,9 +6,9 @@ export class Habit{
         readonly name: string,
         readonly description: string,
         readonly frequency: string,
-        readonly EstimatedTimeInSeconds: string,
-        readonly RestTimeAfterPracticingHabit: string,
-        readonly userId: string,
+        readonly estimatedTimeInSeconds: string,
+        readonly restTimeAfterPracticingHabit: string,
+        readonly userId: Id,
         readonly creationdate: string,
         readonly dateForLastUpdate: string
     ){}
