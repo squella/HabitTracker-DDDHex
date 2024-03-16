@@ -8,5 +8,5 @@ export interface HabitRepository {
   findDuplicateForUser(userId: Id, name: string): Habit | undefined;
   isHabitSaved(habit: Habit): boolean
   findHabitsByUserId(userId: Id): Habit[]
-
+  findById(id:Id): Habit | undefined
 }
