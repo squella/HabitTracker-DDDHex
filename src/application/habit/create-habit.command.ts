@@ -1,5 +1,6 @@
 import { Frequency } from "src/domain/frequency";
 import { Id } from "src/domain/id"
+import { WearableDeviceId } from "src/domain/wearable/wearable-device";
 
 export class CreateHabitCommand {
     constructor(
@@ -11,6 +12,8 @@ export class CreateHabitCommand {
         readonly restTimeAfterPracticingHabit: string,
         readonly userId: Id,
         readonly creationdate: string,
-        readonly dateForLastUpdate: string
+        readonly dateForLastUpdate: string,
+        readonly deviceId?: WearableDeviceId
+
     ){}
 }
