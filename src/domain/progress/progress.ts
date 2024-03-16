@@ -1,17 +1,31 @@
 import { Id } from '../id';
+import { Validated } from '../wearable/validated';
 
 export class Progress {
+    private _validated: Validated;
+
     constructor(
         readonly id: Id,
         readonly userId: Id,
         readonly habitId: Id,
         private _date: Date,
         private _progressDetail?: string,
-        private _progressAmount?: number
+        private _progressAmount?: number,
+        validated: boolean = false
     ) {
         this.setDate(_date);
         this.setProgressDetail(_progressDetail);
         this.setProgressAmount(_progressAmount);
+        this._validated = new Validated(validated);
+
+    }
+    
+    validateProgress(): void {
+        this._validated = new Validated(true);
+    }
+
+    get validated(): boolean {
+        return this._validated.value;
     }
 
     get date(): Date {
