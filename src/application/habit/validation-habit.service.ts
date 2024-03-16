@@ -1,5 +1,6 @@
 import { HabitRepository } from "src/domain/habit/habit.repository";
 import { CreateHabitCommand } from "./create-habit.command";
+import { Id } from "src/domain/id";
 
 
 export class HabitValidationService {
@@ -11,4 +12,12 @@ export class HabitValidationService {
             throw new Error("Habit already exists for this user.");
         }
     }
+
+    validateExistence(habitId: Id) {
+        const habit = this.repository.findById(habitId);
+        if (!habit) {
+            throw new Error(`Habit with ID ${habitId} does not exist.`);
+        }
+    }
 }
+

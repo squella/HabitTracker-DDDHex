@@ -1,6 +1,9 @@
 {
   "moduleFileExtensions": ["js", "json", "ts"],
   "rootDir": ".",
+  "fakeTimers": {
+    "enableGlobally": true
+  },
   "testEnvironment": "node",
   "testRegex": ".*\\.spec\\.ts$",
   "transform": {
