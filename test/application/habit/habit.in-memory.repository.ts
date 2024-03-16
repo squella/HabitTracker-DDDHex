@@ -29,5 +29,13 @@ export class HabitMemoryRepository implements HabitRepository{
     findById(id: Id): Habit {
         return this.habits.find((habit: Habit): boolean => habit.id === id)
     }
+
+    public getAllHabits(): Habit[] {
+        return this.habits;
+    }
+
+    public clear(): void {
+        this.habits = [];
+    }
     
 }
