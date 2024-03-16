@@ -8,7 +8,7 @@ import { GetHabitsQuery } from "src/application/habit/get-habits.query";
 export class HabitService {
     constructor(
         private userRepository: UserRepository,
-        private habitRepository: HabitRepository
+        private habitRepository: HabitRepository,
     ){}
 
     addHabitToUser(userId: Id, habitData: CreateHabitCommand): void {
@@ -34,5 +34,12 @@ export class HabitService {
 
         const habits = this.habitRepository.findHabitsByUserId(query.userId);
         return habits;
+    }
+
+    exists(habitId: Id): void {
+        const habit = this.habitRepository.findById(habitId);
+        if (!habit) {
+            throw new Error("Habit does not exist. Consider creating the habit first.");
+        }
     }
 }

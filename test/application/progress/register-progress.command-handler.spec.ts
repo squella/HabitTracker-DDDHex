@@ -2,12 +2,14 @@ import { RegisterProgressCommandHandler } from "../../../src/application/progres
 import { ProgressMemoryRepository } from "./progress.in-memory.repository";
 import { ProgressMother } from './progress.mother';
 import { RegisterProgressCommand } from "../../../src/application/progress/register-progress.command";
+import { HabitMemoryRepository } from "../habit/habit.in-memory.repository";
 
 
 
 describe('RegisterProgressCommandHandler', () => {
     const progress = new ProgressMother().build()
     const repository = new ProgressMemoryRepository()
+    const habitRepository = new HabitMemoryRepository()
     const command = new RegisterProgressCommand(progress.id,
                                                 progress.userId,
                                                 progress.habitId,

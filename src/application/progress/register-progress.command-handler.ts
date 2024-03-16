@@ -1,6 +1,4 @@
-import { HabitRepository } from "src/domain/habit/habit.repository";
 import { ProgressRepository } from "src/domain/progress/progress.repository";
-import { UserRepository } from "src/domain/user/user.repository";
 import { RegisterProgressCommand } from "./register-progress.command";
 import { Injectable } from "@nestjs/common";
 import { Progress } from "../../domain/progress/progress";
@@ -10,10 +8,15 @@ import { Progress } from "../../domain/progress/progress";
 export class RegisterProgressCommandHandler {
     constructor(
         private progressRepository: ProgressRepository,
+
     ) {}
 
     handle(command: RegisterProgressCommand): void {
-        
+
+        if (!command.habitId) {
+            throw new Error("Habit does not exist. Consider creating the habit first.");
+        }
+
         const progress = new Progress(
                                 command.id, 
                                 command.userId,
