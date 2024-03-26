@@ -23,6 +23,7 @@ describe('Challenge', () => {
         challenge = new Challenge(
             challengeId,
             habitId,
+            habitId,
             'Test Challenge',
             5,
             yesterday,

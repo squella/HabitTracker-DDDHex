@@ -19,6 +19,7 @@ export class CreateChallengeCommandHandler {
         const challenge = new Challenge(
             Id.create(),
             command.habitId,
+            command.userId,
             command.description,
             command.timesToComplete,
             command.startDate,
