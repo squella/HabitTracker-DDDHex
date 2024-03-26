@@ -1,8 +1,7 @@
-import { AchievementRepository } from "src/domain/challenge/achievement.repository";
-import { ChallengeRepository } from "src/domain/challenge/challenge.repository";
+import { AchievementRepository } from "../../../src/domain/challenge/achievement.repository";
+import { ChallengeRepository } from "../../../src/domain/challenge/challenge.repository";
 import { RecordChallengeProgressCommand } from "./record-challenge.command";
-import { Achievement } from "src/domain/challenge/achievement";
-//import { ChallengeState } from "src/domain/challenge/challenge-state";
+import { Achievement } from "../../../src/domain/challenge/achievement";
 
 export class RecordChallengeProgressCommandHandler {
     constructor(
